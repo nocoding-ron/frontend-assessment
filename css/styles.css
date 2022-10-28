@@ -1,0 +1,286 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section,div {
+	display: block;
+    box-sizing: border-box;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* Start of Exercise 1 */
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+.container{
+    max-width: 960px;
+    margin: 0 auto;
+}
+.banner{
+    position: relative;
+}
+.banner .text-content{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.banner .text-content h1{
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.banner .text-content h2{
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.banner img{
+    width: 100%;
+} 
+
+.articles{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+}
+.block{
+    width: 33.333%;
+    display: inline-block;
+    padding: 18px;
+    height: 400px;
+    vertical-align: top;
+    margin: 0 20px;
+    box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+    color:#555;
+    font-size: 14px;
+}
+.block figure{
+    margin-bottom: 10px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.block figure img{
+    width: 100%;
+    transition: transform .2s;
+    display: block;
+}
+
+.block figure:hover img{
+    transform: scale(1.5); 
+}
+.block .button-container{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 18px;
+}
+.block .button-container a{
+    border: 2px solid #000;
+    padding: 10px;
+    width: 140px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    background: transparent;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 12px;
+    display: block;
+    margin: 0 auto;
+    color: #000;
+    text-decoration: none;
+}
+.block .button-container a:hover{
+    background-color: #000;
+    color:#fff;
+}
+
+@media screen and (max-width: 480px) { 
+    .articles{
+        display: block;
+    }
+    .block{
+        width: auto;
+        height: auto;
+        margin-bottom: 30px;
+    }
+    .block .button-container{
+        position: relative;
+        display: block;
+        margin-top: 20px;
+        bottom: auto;
+    }
+}
+
+/* End of Exercise 1 */
+
+/* Start of Exercise 2 */
+.tabs-container{
+    max-width: 600px;
+    margin: 50px auto;
+   
+}
+.tab-nav ul li{
+    display: inline-block;
+    border-right: 1px solid #000;
+    border-top: 1px solid #000;
+    position: relative;
+    border-radius: 10px 10px 0 0;
+}
+.tab-nav ul li:first-child{
+    border-left: 1px solid #000;
+}
+.tab-nav ul li.active{
+    background-color: #ddd;
+}
+.tab-nav ul li a{
+    display: block;
+    padding: 10px 20px;
+    color:#000;
+    font-weight: 700;
+    text-decoration: none;
+    position: relative;
+}
+.tab{
+    border: 1px solid #000;
+}
+.tab-content{
+    padding: 20px;
+    min-height: 300px;
+}
+.tab-content p{
+    margin-bottom: 10px;
+}
+.accordion{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .5s ease-in;
+    display: none;
+}
+.accordion-content{ 
+    padding: 20px;
+    border-top: 1px solid #000;
+}
+.accordion-content p{
+    margin-bottom: 10px;
+}
+.accordion-button{
+    width: 20px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: 21px;
+    top: 12px;
+}
+@media screen and (max-width: 480px) { 
+    .tab-nav ul li{
+        display: block;
+        border: 1px solid #000;
+        border-bottom: 0;
+        border-radius: 0;
+    }
+    .tab-nav ul li:last-child{
+        border-bottom: 1px solid #000;
+    }
+    .tab-nav ul li>a:after{
+        content: "";
+        width: 0; 
+        height: 0; 
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-top: 7px solid #000;
+        border-bottom: 0;
+        position: absolute;
+        right: 20px;
+        bottom: 15px;
+    }
+    .tab-nav ul li.active>a:after{
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 7px solid black;
+        border-top: 0;
+    }
+    .tab{
+        display: none;
+    }
+    .tab-content{
+        display: none;
+    }
+    .accordion{
+        display: block;
+    }
+    .accordion.active{ 
+        max-height: 500px;
+        background-color: #fff;
+    }
+    .accordion-content ul{
+        border: none;
+    }
+    .accordion-content ul li{
+        border: none;
+        list-style-type: disc;
+    }
+    .accordion-content ul li:first-child{
+        border:none;
+    }
+    .accordion-content ul li:last-child{
+        border:none;
+    }
+}
+
+/* End of Exercise 2 */

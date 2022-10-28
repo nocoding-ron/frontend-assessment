@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <main>
+        <div class="tabs-container" id="app">
+            <div class="tabs">
+                <div class="tab-nav">
+                    <ul>
+                        <li v-for="(article, index) in articles" :class="{ 'active': activeIndex === index}" >
+                            <a href="#" :key="article.title" @click="checkSize(article, index)" >{{ article.title }}</a>
+                            
+                            <div class="accordion"
+                            :class="{ 'active': activeIndex === index}" 
+                            >
+                                <div class="accordion-content"  v-html="tabContent"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab">
+                    <div class="tab-content" v-html="tabContent"></div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.41/vue.global.min.js" integrity="sha512-lgbnN1gNswbc8DPmFF2F9n951EGPK0p9PmPkzECHyjC4bmv6Be6ezWQB7mIjPJ5pAdYehSj+Nm0brW0NjCoFmQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module">
+        import articlesData from "./data.json" assert { type: "json" };
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    articles: articlesData,
+                    tabContent : articlesData[0].content,
+                    isActive: false,
+                    windowWidth : window.innerWidth,
+                    activeIndex: undefined
+                }
+            },
+            methods: {
+                checkSize(article,index) {
+                    console.log(('b' + 'a' + + 'a' + 'a'))
+                    this.windowWidth = window.innerWidth
+                    if(this.windowWidth <= 480){
+                        this.setActive(article,index)
+                    } else {
+                        this.selectTab(article,index)
+                    }
+                },
+                setActive(article,index) {
+                    this.activeIndex = index
+                    this.tabContent = article.content;
+                },
+                selectTab(article,index){
+                    this.activeIndex = index
+                    this.tabContent = article.content;
+                }
+            },
+        }).mount('#app')
+
+       
+      </script>
+</body>
+</html>
